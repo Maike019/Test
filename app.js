@@ -366,7 +366,7 @@ nextButton.addEventListener("click", () => {
         } else {
             showResult();
         }
-    }, 1200); // 1,2 Sekunden Pause für Markierung
+    }, 3000); // 2,5 Sekunden Pause für Markierung
 });
 
 // "Überspringen"-Button Logik
@@ -386,26 +386,5 @@ function showResult() {
     answersElement.innerHTML = "";
     nextButton.style.display = "none";
     skipButton.style.display = "none";
-
-    // Auswertung der falsch beantworteten Fragen
-    let auswertungHTML = "<h3>Auswertung:</h3>";
-    let fehler = 0;
-    answerHistory.forEach((entry, idx) => {
-        if (!entry.correct) {
-            fehler++;
-            // Finde die richtige Antwort
-            const richtigeAntwort = entry.answers.find(a => a.correct).text;
-            auswertungHTML += `
-                <div style="text-align:left;margin-bottom:18px;">
-                    <strong>Frage ${idx + 1}:</strong> ${entry.question}<br>
-                    <span style="color:#dc3545;">Deine Antwort: ${entry.selected || "<em>keine Antwort</em>"}</span><br>
-                    <span style="color:#28a745;">Richtige Antwort: ${richtigeAntwort}</span>
-                </div>
-            `;
-        }
-    });
-    if (fehler === 0) {
-        auswertungHTML += "<div style='color:#28a745;'>Alle Fragen richtig beantwortet! Super!</div>";
-    }
-    resultElement.innerHTML = auswertungHTML;
+    resultElement.innerHTML = "";
 }
