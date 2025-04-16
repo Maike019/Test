@@ -43,14 +43,25 @@ body {
 }
 
 button {
-    margin-top: 20px;
-    padding: 15px 25px; /* Größere Buttons */
     border: none;
     border-radius: 6px;
     background-color: #007BFF;
     color: white;
-    font-size: 16px; /* Größere Schrift */
+    font-size: 16px;
     cursor: pointer;
+}
+
+#start-button,
+#next-button,
+#skip-button {
+    margin-top: 20px;
+    padding: 15px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+#skip-button {
+    background-color: #FF5733;
 }
 
 button:disabled {
@@ -60,8 +71,8 @@ button:disabled {
 
 #answers button {
     display: block;
-    margin: 15px auto;
-    padding: 15px; /* Größere Antwort-Buttons */
+    margin: 0 auto 15px auto;
+    padding: 15px;
     width: 100%;
     border: none;
     border-radius: 10px; /* Runde Ecken verstärkt */
@@ -72,6 +83,7 @@ button:disabled {
     cursor: pointer;
     transition: all 0.3s ease; /* Weiche Übergänge */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    pointer-events: auto;
 }
 
 #answers button:hover {
